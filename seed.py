@@ -1,7 +1,6 @@
 from app import db
-from models import Photos, User
+from models import Photos, User, Image
 
 
-db.drop_all()
 db.create_all()
 db.session.commit()

@@ -1,4 +1,3 @@
-from builtins import breakpoint
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey, Integer
 from datetime import datetime
@@ -111,11 +110,8 @@ class Capsule(db.Model):
         capsules = cls.query.filter_by(return_date=today).all()
         return capsules
 
-
     def serialize(self):
         """Serialize number fact dicts to a dict of number fact info."""
-
-
 
         return {
             "id": self.id,
@@ -178,13 +174,12 @@ class User(db.Model):
         """
 
         hashed_pwd = bcrypt.generate_password_hash(password).decode('UTF-8')
-        print("hashed pwd", hashed_pwd)
         user = User(
             username=username,
             email=email,
             password=hashed_pwd,
         )
-
+        print(user)
         db.session.add(user)
         return user
 
