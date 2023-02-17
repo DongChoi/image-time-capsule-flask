@@ -168,19 +168,8 @@ def addImage(capsule_id):
 @app.route("/aws_lambda", methods=["POST"])
 def aws_lambda():
     if request.json["password"] == app.config["LAMBDA_PASSWORD"]:
-        res = return_capsules()
-        return jsonify({"return message": res})
-    else:
-        return Response(status=403)
-
-### Checks to see if any capsules are due today and calls send_emails
-def return_capsules():
-    # Create a date with time instance
-    datetimeInstance = datetime.datetime.today()
-    # Extract the date only from date time instance
-    dateInstance = datetimeInstance.date()
-    capsules = Capsule.get_capsules_due_today(dateInstance)
-    return_message = "capsules to"
+        capsules = return_capsules()
+        return_message = "capsules to"
     for capsule in capsules:
         file_names_for_this_capsule = Image.get_file_names_from_capsule_id(capsule.id)
         user_email = capsule.user.email
@@ -195,7 +184,20 @@ def return_capsules():
     if return_message == "capsules to ":
         return "no capsules were emailed"
     else:
-        return return_message + " has been emailed"
+        
+        return jsonify({"return message": f"{return_message} has been emailed"})
+    else:
+        return Response(status=403)
+
+### Checks to see if any capsules are due today and calls send_emails
+def return_capsules():
+    # Create a date with time instance
+    datetimeInstance = datetime.datetime.today()
+    # Extract the date only from date time instance
+    dateInstance = datetimeInstance.date()
+    capsules = Capsule.get_capsules_due_today(dateInstance)
+    return capsules
+
 
 
 ### Sends emails to users' emails with their capsule_name as title, capsule message and image links as body
