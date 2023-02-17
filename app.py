@@ -39,6 +39,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 
 
+### AWS Lambda Keys
+
+app.config["LAMBDA_PASSWORD"] = os.environ["LAMBDA_PASSWORD"]
+
 ### Yagmail Keys
 app.config["PROGRAM_EMAIL"] = os.environ["PROGRAM_EMAIL"]
 app.config["PROGRAM_EMAIL_PASSWORD"] = os.environ["PROGRAM_EMAIL_PASSWORD"]
@@ -163,13 +167,13 @@ def addImage(capsule_id):
 
 @app.route("/aws_lambda", methods=["POST"])
 def aws_lambda():
-    if request.json["password"] == "aoiDJncKesoij342":
+    if request.json["password"] == app.config["LAMBDA_PASSWORD"]:
         res = return_capsules()
         return jsonify({"return message": res})
     else:
         return Response(status=403)
 
-
+### Checks to see if any capsules are due today and calls send_emails
 def return_capsules():
     # Create a date with time instance
     datetimeInstance = datetime.datetime.today()
@@ -194,7 +198,7 @@ def return_capsules():
         return return_message + " has been emailed"
 
 
-
+### Sends emails to users' emails with their capsule_name as title, capsule message and image links as body
 def send_emails(capsule_name, urls_and_message, user_email="dongandrewchoi@gmail.com"): 
     """ Sends urls via email to users"""
     user = app.config['PROGRAM_EMAIL']
