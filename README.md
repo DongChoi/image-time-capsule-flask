@@ -1,11 +1,13 @@
 # Image Time Capsule
 
 - [Introduction](#introduction)
-- [Installation](#installation)
 - [Authentication and Password Hashing](#authentication-and-password-hashing)
-- [Secure Communication and Custom Domain](#secure-communication-and-custom-domain)
-- [Automated Email Functionality](#automated-email-functionality)
-- [Server Cost Optimization](#server-cost-optimization)
+- [Security](#security)
+- [Hosting](#hosting)
+- [Automated Email](#automated-email)
+- [Server Cost](#server-cost)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
 
 
 ### Introduction
