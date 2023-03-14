@@ -26,6 +26,16 @@ The Image Time Capsule application uses the following technologies:
 5. Flask
 
 
+Installation
+Clone the repository:
 
+git clone https://github.com/yourusername/imagetimecapsule.git
+Navigate to the project directory:
+bash
+Copy code
+cd imagetimecapsule
+Install the required packages:
+Copy code
+pip install -r requirements.txt
 
 
