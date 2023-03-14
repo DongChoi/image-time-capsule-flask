@@ -26,16 +26,35 @@ The Image Time Capsule application uses the following technologies:
 5. Flask
 
 
-Installation
-Clone the repository:
+### Installation
+
+
+1. Clone the repository:
 
 git clone https://github.com/yourusername/imagetimecapsule.git
-Navigate to the project directory:
-bash
-Copy code
+
+2. Navigate to the project directory:
+
 cd imagetimecapsule
-Install the required packages:
-Copy code
+
+3. Install the required packages:
+
 pip install -r requirements.txt
+
+4. Set up the environment variables for the application
+
+
+5. Set up necessary AWS tools:
+- S3
+- Elastic Beanstalk
+- Lambda
+- CloudWatch
+
+
+6. Run the application
+
+flask run
+
+Open a web browser and navigate to http://localhost:5000 to view the application.
 
 
