@@ -1,4 +1,14 @@
 # Image Time Capsule
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Authentication and Password Hashing](#authentication-and-password-hashing)
+- [Secure Communication and Custom Domain](#secure-communication-and-custom-domain)
+- [Automated Email Functionality](#automated-email-functionality)
+- [Server Cost Optimization](#server-cost-optimization)
+
+
+### Introduction
 Image Time Capsule is a web application that allows authenticated users to upload images and create time capsules that are stored securely on the server. The application uses JSON Web Tokens (JWT) to authenticate users and protect resources from unauthorized access.
 
 ### Authentication and Password Hashing
