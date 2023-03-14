@@ -4,7 +4,7 @@
 - [Authentication and Password Hashing](#authentication-and-password-hashing)
 - [Security](#security)
 - [Hosting](#hosting)
-- [Automated Email](#automated-email)
+- [Automated Emails](#automated-email)
 - [Server Cost](#server-cost)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
